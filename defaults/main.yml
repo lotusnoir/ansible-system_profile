@@ -1,0 +1,25 @@
+---
+### 3 ways to add
+# 1/ insert block on /etc/profile
+profile_main: |
+      export test=ok
+
+# 2/ Create new file from config
+profile_config:
+  - file: proxy
+    content: |
+      export http_proxy=http://squid.example.com:3128
+      export https_proxy={% raw %}{{ http_proxy }}{% endraw %}{{''}}
+      export no_proxy=localhost,127.0.0.1,{{ ansible_default_ipv4.address }},{{ ansible_fqdn }}
+  - file: test
+    content: |
+      export titi=test
+    state: absent
+
+# 3/ Add files from path
+#profile_files: "/home/titi/profilefiles/*"
+
+### Remove extra file
+#profile_remove:
+#  - titi
+#  - proxy
