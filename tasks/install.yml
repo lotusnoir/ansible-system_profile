@@ -9,9 +9,9 @@
 
 - name: "Add file in profile.d from config"
   ansible.builtin.copy:
-    dest: "/etc/profile.d/{{ item.file }}"
+    dest: "/etc/profile.d/{{ item.file }}.sh"
     content: "{{ item.content }}"
-    mode: '0644'
+    mode: '0755'
   with_items: "{{ profile_config }}"
   when: "(item.state is defined and item.state != 'absent') or (item.state is defined and item.state == 'present') or item.state is not defined"
 
@@ -19,7 +19,7 @@
   copy:
     src: "{{ item }}"
     dest: "/etc/profile.d/"
-    mode: 0644
+    mode: 0755
   with_fileglob: "{{ profile_files }}"
   when:
     - "profile_files is defined"

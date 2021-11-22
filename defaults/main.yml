@@ -17,7 +17,7 @@ profile_config:
     state: absent
 
 # 3/ Add files from path
-#profile_files: "/home/titi/profilefiles/*"
+#profile_files: "/home/titi/profilefiles/*.sh"
 
 ### Remove extra file
 #profile_remove:
