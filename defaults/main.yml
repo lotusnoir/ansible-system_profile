@@ -9,7 +9,7 @@ profile_config:
   - file: proxy
     content: |
       export http_proxy=http://squid.example.com:3128
-      export https_proxy={% raw %}{{ http_proxy }}{% endraw %}{{''}}
+      export https_proxy=$http_proxy
       export no_proxy=localhost,127.0.0.1,{{ ansible_default_ipv4.address }},{{ ansible_fqdn }}
   - file: test
     content: |
