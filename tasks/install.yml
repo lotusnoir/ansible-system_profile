@@ -1,6 +1,6 @@
 ---
 - name: "Insert/Update /etc/profile"
-  blockinfile:
+  ansible.builtin.blockinfile:
     path: /etc/profile
     block: "{{ profile_main }}"
   when:
@@ -16,7 +16,7 @@
   when: "(item.state is defined and item.state != 'absent') or (item.state is defined and item.state == 'present') or item.state is not defined"
 
 - name: "Add external profile files"
-  copy:
+  ansible.builtin.copy:
     src: "{{ item }}"
     dest: "/etc/profile.d/"
     mode: 0755
