@@ -1,8 +1,8 @@
 ---
 ### 3 ways to add
 # 1/ insert block on /etc/profile
-profile_main: |
-      export test=ok
+#profile_main: |
+#      export test=ok
 
 # 2/ Create new file from config
 profile_config:
