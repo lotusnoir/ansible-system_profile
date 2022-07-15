@@ -6,9 +6,7 @@ driver:
 scenario:
   name: default
   test_sequence:
-    - lint
     - destroy
-    - syntax
     - create
     - prepare
     - converge
@@ -75,13 +73,11 @@ platforms:
       - python3
   - name: system-profile-oraclelinux7
     pre_build_image: true
-    image: lotusnoir/ansible_molecule_test_images:oraclelinux8
+    image: lotusnoir/ansible_molecule_test_images:oraclelinux7
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    groups:
-      - python3
   - name: system-profile-oraclelinux8
     pre_build_image: true
     image: lotusnoir/ansible_molecule_test_images:oraclelinux8
