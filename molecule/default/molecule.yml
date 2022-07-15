@@ -3,6 +3,18 @@ dependency:
   name: galaxy
 driver:
   name: docker
+scenario:
+  name: default
+  test_sequence:
+    - lint
+    - destroy
+    - syntax
+    - create
+    - prepare
+    - converge
+    - idempotence
+    - verify
+    - destroy
 platforms:
   - name: system-profile-ubuntu18
     pre_build_image: true
