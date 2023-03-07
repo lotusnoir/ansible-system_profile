@@ -19,6 +19,8 @@ none
 
 See [variables](/defaults/main.yml) for more details.
 
+With default variables, this role assume it doesnt change anything on the system. You need to set the config variables like in the exemple in order to start configuration.
+
 ## Examples
 
         ---
@@ -28,6 +30,21 @@ See [variables](/defaults/main.yml) for more details.
           gather_facts: true
           roles:
             - role: ansible-system_profile
+          vars: 
+            profile_main: |
+                  export test=ok
+            profile_config:
+              - file: proxy.sh
+                content: |
+                  export http_proxy=http://squid.example.com:3128
+                  export https_proxy=$http_proxy 
+                  export no_proxy=localhost,127.0.0.1,{{ ansible_fqdn }}
+              - file: test.sh
+                content: |
+                  export titi=test
+                state: absent
+            
+
 
 
 ## License
