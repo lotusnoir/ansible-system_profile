@@ -1,0 +1,16 @@
+---
+- name: Run role
+  hosts: all
+  become: true
+  any_errors_fatal: true
+
+  roles:
+    - role: ansible-system_profile
+
+  vars:
+    profile_main: |
+          export test=ok
+    profile_config:
+      - file: proxy.sh
+        content: |
+          export http_proxy=http://squid.example.com:3128

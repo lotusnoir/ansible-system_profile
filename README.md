@@ -37,7 +37,7 @@ With default variables, this role assume it doesnt change anything on the system
               - file: proxy.sh
                 content: |
                   export http_proxy=http://squid.example.com:3128
-                  export https_proxy=$http_proxy 
+                  export https_proxy=$http_proxy
                   export no_proxy=localhost,127.0.0.1,{{ ansible_fqdn }}
               - file: test.sh
                 content: |
