@@ -1,13 +1,13 @@
 # ansible-system_profile
 
-## Description
-
 [![Galaxy Role](https://img.shields.io/badge/galaxy-system_profile-purple?style=flat)](https://galaxy.ansible.com/lotusnoir/system_profile)
 [![Version](https://img.shields.io/github/release/lotusnoir/ansible-system_profile.svg)](https://github.com/lotusnoir/ansible-system_profile/releases/latest)
 [![GitHub repo size](https://img.shields.io/github/repo-size/lotusnoir/ansible-system_profile?color=orange&style=flat)](https://galaxy.ansible.com/lotusnoir/system_profile)
 [![downloads](https://img.shields.io/ansible/role/d/56943)](https://galaxy.ansible.com/lotusnoir/system_profile)
 [![Ansible Quality Score](https://img.shields.io/ansible/quality/56943)](https://galaxy.ansible.com/lotusnoir/system_profile)
 [![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen?style=flat)](https://opensource.org/licenses/Apache-2.0)
+
+## Description
 
 Configure profile for users
 ## Requirements
@@ -29,7 +29,7 @@ With default variables, this role dont change anything on the system. You need t
           gather_facts: true
           roles:
             - role: ansible-system_profile
-          vars: 
+          vars:
             profile_main: |
                   export test=ok
             profile_config:
@@ -42,7 +42,6 @@ With default variables, this role dont change anything on the system. You need t
                 content: |
                   export titi=test
                 state: absent
-            
 
 
 
