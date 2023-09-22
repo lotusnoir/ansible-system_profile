@@ -4,11 +4,6 @@
   become: true
   any_errors_fatal: true
 
-  tasks:
-    - name: Include role
-      ansible.builtin.include_role:
-        name: ansible-system_profile
-
   vars:
     profile_main: |
           export test=ok
@@ -16,3 +11,8 @@
       - file: proxy.sh
         content: |
           export http_proxy=http://squid.example.com:3128
+
+  tasks:
+    - name: Include role
+      ansible.builtin.include_role:
+        name: ansible-system_profile
