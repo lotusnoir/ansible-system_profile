@@ -8,9 +8,9 @@
     - profile_main | length > 0
 
 - name: "Create file in profile.d"
-  ansible.builtin.copy:
+  ansible.builtin.template:
+    src: entry.j2
     dest: "/etc/profile.d/{{ item.file }}"
-    content: "{{ item.content }}"
     mode: '0755'
   with_items: "{{ profile_config }}"
   when:
