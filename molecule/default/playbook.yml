@@ -11,6 +11,8 @@
       - file: proxy.sh
         content: |
           export http_proxy=http://squid.example.com:3128
+      - file: test.sh
+        state: absent
 
   tasks:
     - name: Include role

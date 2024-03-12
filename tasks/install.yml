@@ -16,6 +16,7 @@
   when:
     - profile_config is defined
     - profile_config | length > 0
+    - (item.state is defined and item.state == 'present') or item.state is not defined
 
 - name: "Remove file from profile.d"
   ansible.builtin.file:
