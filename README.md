@@ -22,6 +22,7 @@
 ## Description
 
 Configure profile for users
+
 ## Requirements
 
 none
@@ -53,7 +54,6 @@ With default variables, this role dont change anything on the system. You need t
                   export no_proxy=localhost,127.0.0.1,{{ ansible_fqdn }}
               - file: test.sh
                 state: absent
-
 
 
 ## License
